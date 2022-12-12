@@ -1,0 +1,20 @@
+CREATE TABLE tb_clientes
+(CPF VARCHAR(11),
+Nome VARCHAR(100),
+Endereco VARCHAR(150),
+Endereco2 VARCHAR(150),
+Bairro VARCHAR(50),
+Cidade VARCHAR(50),
+Estado VARCHAR(50),
+Cep VARCHAR(8),
+Idade SMALLINT,
+Sexo VARCHAR(1),
+Limite_Credito FLOAT,
+Volume_Compra FLOAT,
+Primeira_Compra BIT(1));
+
+CREATE TABLE tabela_de_vendedores
+(Matricula VARCHAR(5),
+Nome VARCHAR(100),
+Percentual_Comissão FLOAT);
+
