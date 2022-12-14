@@ -1,4 +1,4 @@
-CREATE TABLE tb_clientes
+CREATE TABLE tbcliente
 (CPF VARCHAR(11),
 Nome VARCHAR(100),
 Endereco VARCHAR(150),
@@ -13,8 +13,52 @@ Limite_Credito FLOAT,
 Volume_Compra FLOAT,
 Primeira_Compra BIT(1));
 
+ALTER TABLE tbcliente ADD PRIMARY KEY (CPF);
+
+ALTER TABLE tbcliente ADD COLUMN (DATA_NASCIMENTO DATE);
+
+INSERT INTO tbcliente (
+CPF, Nome, Endereco, Endereco2, Bairro, Cidade, Estado, 
+Cep, Idade, Sexo, Limite_Credito, Volume_Compra, Primeira_Compra, DATA_NASCIMENTO)
+VALUES ('3444588975', 'Joao da Silva', 'Rua A, 10', '', 'Sao Jorge', 'Santos', 'Sao Paulo', '11999800', '29', 
+'M', 10000.00, 2000, 0, '1995-09-04');
+
+
 CREATE TABLE tabela_de_vendedores
 (Matricula VARCHAR(5),
 Nome VARCHAR(100),
 Percentual_Comissão FLOAT);
+
+ALTER TABLE tabela_de_vendedores ADD PRIMARY KEY (Matricula);
+
+ALTER TABLE tabela_de_vendedores ADD COLUMN (DATA_ADMISSAO DATE);
+ALTER TABLE tabela_de_vendedores ADD COLUMN (DE_FERIAS BIT);
+
+INSERT INTO tabela_de_vendedores (
+Matricula, Nome, Percentual_Comissão, DATA_ADMISSAO, DE_FERIAS)
+VALUES ('00235', 'Márcio Almeida Silva', 0.08, '2014-08-15', 0);
+
+INSERT INTO tabela_de_vendedores (
+Matricula, Nome, Percentual_Comissão, DATA_ADMISSAO, DE_FERIAS)
+VALUES ('00236', 'Cláudia Morais', 0.08, '2013-09-17', 1);
+
+INSERT INTO tabela_de_vendedores (
+Matricula, Nome, Percentual_Comissão, DATA_ADMISSAO, DE_FERIAS)
+VALUES ('00237', 'Roberta Martins', 0.11, '2017-03-18', 1);
+
+INSERT INTO tabela_de_vendedores (
+Matricula, Nome, Percentual_Comissão, DATA_ADMISSAO, DE_FERIAS)
+VALUES ('00238', 'Péricles Alves', 0.11, '2016-08-21', 0);
+
+UPDATE tabela_de_vendedores SET DE_FERIAS = 1
+WHERE Matricula = '00238';
+
+SELECT Nome, Matricula FROM tabela_de_vendedores WHERE DE_FERIAS = 0;
+
+SELECT * FROM tabela_de_vendedores WHERE Percentual_Comissão > 0.10;
+
+SELECT * FROM tabela_de_vendedores WHERE YEAR(DATA_ADMISSAO) < 2016 AND DE_FERIAS = 1;
+
+
+
 
