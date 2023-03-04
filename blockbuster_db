@@ -1,4 +1,4 @@
---Creating a db for the so missed blockbuster
+*/Creating a db for the so missed blockbuster/*
 
 CREATE TABLE FILMES
 (id_filme INT NOT NULL PRIMARY KEY, 
