@@ -1,0 +1,29 @@
+--Creating a db for the so missed blockbuster
+
+CREATE TABLE FILMES
+(id_filme INT NOT NULL PRIMARY KEY, 
+titulo VARCHAR (70),
+genero VARCHAR (50),
+ano INT,
+distribuidora VARCHAR (50));
+
+CREATE TABLE CLIENTES
+(id_cliente INT NOT NULL PRIMARY KEY,
+nome VARCHAR (50),
+telefone VARCHAR (14),
+email VARCHAR (30));
+
+CREATE TABLE FUNCIONARIOS
+(id_funcionario INT NOT NULL PRIMARY KEY,
+nome VARCHAR (50));
+
+CREATE TABLE LOCACOES
+(id_pedido INT NOT NULL,
+id_cliente INT NOT NULL,
+data_pedido TIMESTAMP,
+valor_locação FLOAT,
+id_funcionario INT NOT NULL,
+PRIMARY KEY (id_pedido),
+FOREIGN KEY (id_cliente) REFERENCES CLIENTES(id_cliente),
+FOREIGN KEY (id_funcionario) REFERENCES FUNCIONARIOS(id_funcionario)
+);
